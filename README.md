@@ -7,8 +7,10 @@
 Bikeshare
 
 ### Description
-Analize bikeshare data from 3 US cities.
-Ask user to pick a city, a month and a day to be analized. Show statistics for most frequent travel times, most popular month, weekday, start time, station, trip, total and average trip duration, user types, user gender, user birth year.
+Analize **bikeshare data** from 3 US cities: Chicago, Washington, NYC.
+Ask user to pick a city, a month and a day to be analized. Show statistics for
+most frequent travel times, most popular month, weekday, start time, station,
+trip, total and average trip duration, user types, user gender, user birth year.
 
 ### Files used
 chicago.csv, washington.csv, new_york_city.csv
