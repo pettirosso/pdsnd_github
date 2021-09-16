@@ -231,12 +231,12 @@ def main():
                 if raw_data == 'no':
                     break
                 elif raw_data == 'yes':
-                    print(df.iloc[row:row+5])
-                    row=row+5
-                    raw_data = input('Would you like to see more raw data? Enter yes or no. ').lower()
+                    print(df.iloc[row:row+10])
+                    row=row+10
+                    raw_data = input('Would you like to see 10 more lines of raw data? Enter yes or no. ').lower()
                 else:
                     print('Please type yes or no!')
-                    raw_data = input('Would you like to see more raw data? Enter yes or no. ').lower()
+                    raw_data = input('Would you like to see ten more lines of raw data? Enter yes or no. ').lower()
 
         except KeyboardInterrupt:
             print('Keyboard interrupt')
