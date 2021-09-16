@@ -24,7 +24,7 @@ def get_filters():
             city=input('Please type Chicago, New York City or Washington! ').lower().title()
         except KeyboardInterrupt:
             print('Keyboard interrupt')
-    print('Great! You have chosen ' + city + '!')
+    print('Great! You have chosen the city' + city + '!')
 
     # TO DO: get user input for month (all, january, february, ... , june)
 
