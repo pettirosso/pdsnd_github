@@ -24,7 +24,7 @@ def get_filters():
             city=input('Please type Chicago, New York City or Washington! ').lower().title()
         except KeyboardInterrupt:
             print('Keyboard interrupt')
-    print('Great! You have chosen ' + city + '!')
+    print('Great! You have chosen the city' + city + '!')
 
     # TO DO: get user input for month (all, january, february, ... , june)
 
@@ -67,8 +67,9 @@ def load_data(city, month, day):
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
 
-    # convert the Start Time column to datetime
+    # convert the Start and End Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df['End Time'] = pd.to_datetime(df['End Time'])
 
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
@@ -121,9 +122,20 @@ def time_stats(df):
 
     print('Most Popular Start Hour:', popular_hour)
 
+
+
+    # TO DO: display the most common End hour
+
+    # extract hour from the End Time column to create an endhour column
+    df['Endhour'] = df['End Time'].dt.hour
+
+    # find the most popular endhour
+    popular_endhour = df['Endhour'].mode()[0]
+
+    print('Most Popular End Hour:', popular_endhour)
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -231,12 +243,12 @@ def main():
                 if raw_data == 'no':
                     break
                 elif raw_data == 'yes':
-                    print(df.iloc[row:row+5])
-                    row=row+5
-                    raw_data = input('Would you like to see more raw data? Enter yes or no. ').lower()
+                    print(df.iloc[row:row+10])
+                    row=row+10
+                    raw_data = input('Would you like to see 10 more lines of raw data? Enter yes or no. ').lower()
                 else:
                     print('Please type yes or no!')
-                    raw_data = input('Would you like to see more raw data? Enter yes or no. ').lower()
+                    raw_data = input('Would you like to see ten more lines of raw data? Enter yes or no. ').lower()
 
         except KeyboardInterrupt:
             print('Keyboard interrupt')
